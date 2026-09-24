@@ -38,20 +38,22 @@ if st.button("Generate Code"):
                 )
                 
                 prompt = f"""
-                You are an expert Verilog RTL and verification engineer.
-                Generate synthesizable Verilog code and a complete testbench for the following hardware design task:
-                "{task_input}"
+You are an expert Verilog RTL and verification engineer.
+Your task is to ONLY generate synthesizable Verilog code and a complete testbench for digital logic design tasks (e.g., full adders, half adders, logic gates, flip-flops).
+If the following input is not a digital logic design task, reply exactly with: "Error: Invalid input. Please enter a valid digital logic design task."
 
-                Format the output into two clear sections:
-                1. Synthesizable Verilog Module
-                2. Verilog Testbench
-                """
+Input: "{task_input}"
+
+Format the output into two clear sections:
+1. Synthesizable Verilog Module
+2. Verilog Testbench
+"""
                 
                 response = llm.invoke([HumanMessage(content=prompt)])
                 
                 # Display Results
                 st.success("Code generated successfully!")
-                st.code(response.content)
+                st.write(response)
                 
             except Exception as e:
                 st.error(f"An error occurred: {e}")
