@@ -51,7 +51,7 @@ if st.button("Generate Code"):
                 
                 # Display Results
                 st.success("Code generated successfully!")
-                st.markdown(response.content)
+                st.code(response.content)
                 
             except Exception as e:
                 st.error(f"An error occurred: {e}")
