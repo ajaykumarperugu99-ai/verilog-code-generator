@@ -27,7 +27,7 @@ if st.button("Generate Code"):
             try:
                 # Initialize Model
                 llm = ChatGoogleGenerativeAI(
-                    model="gemini-3.5-flash",
+                model = genai.GenerativeModel("gemma-4-31b-it"),
                     google_api_key=api_key
                 )
                 
