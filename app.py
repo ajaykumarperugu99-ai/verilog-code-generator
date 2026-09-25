@@ -9,11 +9,6 @@ st.set_page_config(page_title="Verilog RTL Generator", page_icon="⚡", layout="
 st.title("⚡ Verilog RTL & Testbench Generator")
 st.write("Enter a digital logic design task (e.g., `Full Adder`, `4-bit Counter`, `D Flip-Flop`) to generate Verilog RTL code and its Testbench.")
 
-# Sidebar for API Key configuration
-st.sidebar.header("Configuration")
-api_key = st.sidebar.text_input("Gemini API Key", type="password")
-
-# Fallback to environment variable if sidebar is empty
 if not api_key:
     api_key = os.getenv("GEMINI_API_KEY", "")
 
@@ -53,7 +48,7 @@ Format the output into two clear sections:
                 
                 # Display Results
                 st.success("Code generated successfully!")
-                st.write(response)
+                st.write(response.text)
                 
             except Exception as e:
                 st.error(f"An error occurred: {e}")
