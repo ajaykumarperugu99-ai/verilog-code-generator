@@ -9,8 +9,7 @@ st.set_page_config(page_title="Verilog RTL Generator", page_icon="⚡", layout="
 st.title("⚡ Verilog RTL & Testbench Generator")
 st.write("Enter a digital logic design task (e.g., `Full Adder`, `4-bit Counter`, `D Flip-Flop`) to generate Verilog RTL code and its Testbench.")
 
-if not api_key:
-    api_key = os.getenv("GEMINI_API_KEY", "")
+api_key = os.getenv("GEMINI_API_KEY", "")
 
 if not api_key:
     st.warning("⚠️ Please enter your Gemini API Key in the sidebar or set `GEMINI_API_KEY` environment variable.")
